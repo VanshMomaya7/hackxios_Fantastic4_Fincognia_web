@@ -13,7 +13,9 @@
         "@react-three/fiber": "^8.16.8",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
-        "three": "^0.169.0"
+        "react-router-dom": "^7.11.0",
+        "three": "^0.169.0",
+        "zustand": "^5.0.9"
     },
     "devDependencies": {
         "@vitejs/plugin-react": "^4.3.4",
