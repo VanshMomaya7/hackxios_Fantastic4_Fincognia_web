@@ -77,7 +77,10 @@ const Agents = () => {
                     </div>
 
                     {/* CARD 2: TAXATION AGENT (Based on Current Balance card) */}
-                    <div className="bg-[#E6EFEA] text-[#1E3A2F] rounded-[32px] p-8 aspect-square flex flex-col justify-between border border-[#CFE3D8] relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+                    <div
+                        onClick={() => navigate('/taxation-agent')}
+                        className="bg-[#E6EFEA] text-[#1E3A2F] rounded-[32px] p-8 aspect-square flex flex-col justify-between border border-[#CFE3D8] relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 cursor-pointer shadow-lg hover:shadow-xl"
+                    >
                         <div className="flex justify-between items-start">
                             <div>
                                 <h3 className="text-xl font-bold mb-1">Taxation Agent</h3>

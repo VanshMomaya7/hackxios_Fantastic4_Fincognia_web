@@ -7,6 +7,7 @@ import Layout from "./Layout";
 import Dashboard from "./Components/Dashboard";
 import Agents from "./Components/Agents";
 import PolicyPage from "./Components/PolicyPage";
+import TaxationPage from "./Components/TaxationPage";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -17,6 +18,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/agents" element={<Agents />} />
           <Route path="/policy-agent" element={<PolicyPage />} />
+          <Route path="/taxation-agent" element={<TaxationPage />} />
           {/* <Route path="/about" element={<About />} /> */}
           {/* <Route path="/contact" element={<Contact />} /> */}
         </Route>
