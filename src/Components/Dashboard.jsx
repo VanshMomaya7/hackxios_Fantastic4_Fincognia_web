@@ -3,6 +3,8 @@ import useAuthStore from '../store/useAuthStore';
 import { ForecastChart } from './dashbord/ForcastChart';
 import Sidebar from './Sidebar';
 import { Search, Bell } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import SuperMoneyCard from './SuperMoneyCard';
 
 const Dashboard = () => {
     const { user } = useAuthStore();
@@ -71,26 +73,28 @@ const Dashboard = () => {
                     {/* ROW 2: CHART (Left) & SIDE WIDGETS (Right) */}
 
                     {/* LEFT: CHART */}
-                    <div className="md:col-span-2">
+                    <div className="md:col-span-2 h-[420px]">
                         <ForecastChart />
                     </div>
 
-                    {/* RIGHT: PLACEHOLDERS */}
-                    <div className="md:col-span-1 space-y-6">
-                        {/* Placeholder: Bank Accounts */}
-                        <div className="bg-white border border-[#CFE3D8] rounded-[32px] p-6 h-[200px] flex flex-col justify-center items-center text-center shadow-lg hover:shadow-xl transition-all">
-                            <div className="w-12 h-12 bg-[#E6EFEA] rounded-full flex items-center justify-center text-2xl mb-3">
-                                🏦
+                    {/* RIGHT: CARD & SAVINGS */}
+                    <div className="md:col-span-1 flex flex-col justify-between h-[420px]">
+                        {/* Super Money Card Link */}
+                        <Link to="/credit" className="block w-full group relative mb-0 flex-1 flex items-center justify-center overflow-hidden rounded-[32px] bg-transparent">
+                            <div className="absolute inset-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                                {/* Auto-scale the 500px card to fit parent width/height provided */}
+                                <div className="transform scale-[0.55] lg:scale-[0.65] xl:scale-[0.7] origin-center">
+                                    <SuperMoneyCard name={user?.displayName || "MOKSH JHAVERI"} />
+                                </div>
                             </div>
-                            <span className="text-xs font-bold uppercase tracking-widest text-gray-400">Bank Accounts Placeholder</span>
-                        </div>
+                        </Link>
 
                         {/* Placeholder: Savings Plan */}
-                        <div className="bg-white border border-[#CFE3D8] rounded-[32px] p-6 h-[200px] flex flex-col justify-center items-center text-center shadow-lg hover:shadow-xl transition-all">
-                            <div className="w-12 h-12 bg-[#E6EFEA] rounded-full flex items-center justify-center text-2xl mb-3">
+                        <div className="bg-white border border-[#CFE3D8] rounded-[32px] p-4 h-[180px] flex flex-col justify-center items-center text-center shadow-lg hover:shadow-xl transition-all">
+                            <div className="w-10 h-10 bg-[#E6EFEA] rounded-full flex items-center justify-center text-xl mb-2">
                                 🌱
                             </div>
-                            <span className="text-xs font-bold uppercase tracking-widest text-gray-400">Savings Plan Placeholder</span>
+                            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Savings Plan Placeholder</span>
                         </div>
                     </div>
 

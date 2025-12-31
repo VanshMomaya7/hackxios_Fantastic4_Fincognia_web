@@ -24,7 +24,7 @@ const Sidebar = () => {
         { name: 'Home', icon: Home, path: '/dashboard' },
         { name: 'Account', icon: User, path: '/dashboard' },
         { name: 'Activity', icon: Activity, path: '/dashboard' },
-        { name: 'Cards', icon: CreditCard, path: '/dashboard' },
+        { name: 'Cards', icon: CreditCard, path: '/credit' },
         { name: 'Agents', icon: Receipt, path: '/agents' },
         { name: 'Manage', icon: Settings, path: '/dashboard' },
         { name: 'Calendar', icon: Calendar, path: '/dashboard' },

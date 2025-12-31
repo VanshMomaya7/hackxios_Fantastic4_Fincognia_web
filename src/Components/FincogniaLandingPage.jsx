@@ -1,4 +1,5 @@
 import React, { Suspense, useRef, memo, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Canvas } from "@react-three/fiber";
 import {
   useGLTF,
@@ -81,6 +82,7 @@ const Scene = () => {
 };
 
 const FincogniaLandingPage = () => {
+  const navigate = useNavigate();
   const container = useRef();
   const [index, setIndex] = useState(0);
   const words = ["anticipates", "protects", "secures", "optimizes"];
@@ -110,10 +112,10 @@ const FincogniaLandingPage = () => {
               <span
                 key={word}
                 className={`absolute left-0 w-full text-gray-300 italic font-light transition-all duration-700 ease-in-out ${i === index
-                    ? "translate-y-0 opacity-100"
-                    : i < index
-                      ? "-translate-y-full opacity-0"
-                      : "translate-y-full opacity-0"
+                  ? "translate-y-0 opacity-100"
+                  : i < index
+                    ? "-translate-y-full opacity-0"
+                    : "translate-y-full opacity-0"
                   }`}
                 style={{ whiteSpace: "nowrap" }}
               >
@@ -150,7 +152,10 @@ const FincogniaLandingPage = () => {
           </p>
 
           <div className="mt-8 flex gap-3 justify-center pointer-events-auto">
-            <button className="bg-[#1E3A2F] text-white px-8 py-4 rounded-2xl font-bold text-sm shadow-2xl active:scale-95 transition-all">
+            <button
+              onClick={() => navigate('/dashboard')}
+              className="bg-[#1E3A2F] text-white px-8 py-4 rounded-2xl font-bold text-sm shadow-2xl active:scale-95 transition-all"
+            >
               Launch Live Demo
             </button>
           </div>

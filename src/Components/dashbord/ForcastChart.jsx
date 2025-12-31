@@ -59,24 +59,23 @@ export function ForecastChart() {
   }
 
   return (
-    <Card className="w-full bg-white border-[#CFE3D8] rounded-[32px] overflow-hidden shadow-xl shadow-emerald-900/5">
-      <CardHeader className="flex flex-row items-center justify-between pb-8">
+    <Card className="w-full bg-white border-[#CFE3D8] rounded-[32px] overflow-hidden shadow-xl shadow-emerald-900/5 h-full flex flex-col">
+      <CardHeader className="flex flex-row items-center justify-between pb-2 pt-6 px-6">
         <div className="space-y-1">
-          <CardTitle className="text-2xl font-bold text-[#1E3A2F]">Liquidity Forecast</CardTitle>
-          <CardDescription className="text-gray-400">Probabilistic cashflow projection</CardDescription>
+          <CardTitle className="text-xl font-bold text-[#1E3A2F]">Liquidity Forecast</CardTitle>
+          <CardDescription className="text-gray-400 text-xs">Probabilistic cashflow projection</CardDescription>
         </div>
-        
+
         {/* TOP RIGHT TABS */}
         <div className="flex bg-[#FAFAF7] p-1 rounded-xl border border-[#CFE3D8]">
           {["7D", "30D", "90D"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-4 py-1.5 text-[10px] font-bold rounded-lg transition-all ${
-                activeTab === tab 
-                  ? "bg-[#1E3A2F] text-white shadow-md" 
-                  : "text-gray-400 hover:text-[#1E3A2F]"
-              }`}
+              className={`px-3 py-1 text-[9px] font-bold rounded-lg transition-all ${activeTab === tab
+                ? "bg-[#1E3A2F] text-white shadow-md"
+                : "text-gray-400 hover:text-[#1E3A2F]"
+                }`}
             >
               {tab}
             </button>
@@ -84,32 +83,32 @@ export function ForecastChart() {
         </div>
       </CardHeader>
 
-      <CardContent>
-        <ChartContainer config={chartConfig} className="h-[300px] w-full">
+      <CardContent className="flex-1 min-h-0 px-4 pb-2">
+        <ChartContainer config={chartConfig} className="h-full w-full">
           <LineChart
             accessibilityLayer
             data={getData()}
-            margin={{ left: 0, right: 20, top: 10, bottom: 0 }}
+            margin={{ left: 0, right: 10, top: 10, bottom: 0 }}
           >
             <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="#E6EFEA" />
             <XAxis
               dataKey="day"
               tickLine={false}
               axisLine={false}
-              tickMargin={12}
+              tickMargin={8}
               className="text-[10px] font-medium text-gray-400"
             />
-            <YAxis 
-               tickLine={false}
-               axisLine={false}
-               tickFormatter={(value) => `₹${value / 1000}k`}
-               className="text-[10px] font-medium text-gray-400"
+            <YAxis
+              tickLine={false}
+              axisLine={false}
+              tickFormatter={(value) => `₹${value / 1000}k`}
+              className="text-[10px] font-medium text-gray-400"
             />
             <ChartTooltip
               cursor={{ stroke: '#1E3A2F', strokeWidth: 1 }}
-              content={<ChartTooltipContent 
+              content={<ChartTooltipContent
                 className="bg-[#1E3A2F] text-white border-none rounded-xl"
-                formatter={(value) => `₹${value.toLocaleString('en-IN')}`} 
+                formatter={(value) => `₹${value.toLocaleString('en-IN')}`}
               />}
             />
             <Line
@@ -124,11 +123,11 @@ export function ForecastChart() {
         </ChartContainer>
       </CardContent>
 
-      <CardFooter className="flex-col items-start gap-2 pt-6 text-sm border-t border-[#CFE3D8]/30">
+      <CardFooter className="flex-col items-start gap-1 pb-6 px-6 pt-2 text-sm border-t border-[#CFE3D8]/30">
         <div className="flex gap-2 leading-none font-bold text-[#1E3A2F]">
           Solvency increased by 12% <TrendingUp className="h-4 w-4 text-emerald-500" />
         </div>
-        <div className="text-gray-400 text-xs leading-none">
+        <div className="text-gray-400 text-[10px] leading-none">
           ML engine simulating 10k scenarios for {activeTab} period.
         </div>
       </CardFooter>
